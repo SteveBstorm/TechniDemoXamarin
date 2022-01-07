@@ -1,0 +1,1 @@
+C:\Users\elean\source\Demo\XamarinSampleTechni\XamarinSample\XamarinSample.UWP\XamarinSample.UWP.csproj;x64

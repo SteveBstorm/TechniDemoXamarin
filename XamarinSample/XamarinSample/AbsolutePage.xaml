@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Tools="clr-namespace:XamarinSample.Tools"
+             x:Class="XamarinSample.AbsolutePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70*"></RowDefinition>
+                    <RowDefinition Height="10*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <RelativeLayout Grid.ColumnSpan="2">
+                    <BoxView BackgroundColor="Chartreuse" x:Name="bv1"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.3}"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                     ></BoxView>
+                    <Label FontSize="30" Text="Steve Lorent"
+                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=bv1, Factor=0.4,Constant=-35, Property=Width}"></Label>
+
+                    <Frame CornerRadius="50" BorderColor="Brown" 
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=bv1, Property=Width, Factor=0.4,Constant=-30}"
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=bv1, Property=Height, Factor=0.5,Constant=-10}"
+                           >
+                        <Image Source="{Tools:EmbeddedImage Resource=XamarinSample.image.image.png}" 
+                               Aspect="AspectFit"
+                               HeightRequest="100"
+                               WidthRequest="100"
+                               />
+                    </Frame>
+
+                    <ScrollView
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, ElementName=bv1, Property=Height, Factor=0.8}">
+                        <StackLayout>
+                            <Grid Margin="15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Label Text="Gsm" />
+                                <Label Text="0321/65.12.98" Grid.Column="1" />
+                                <Label Text="Tel" Grid.Row="1" />
+                                <Label Text="0321/65.12.98" Grid.Row="1" Grid.Column="1" />
+                                <Label Text="Email" Grid.Row="2" />
+                                <Label Text="info@mail.com" Grid.Row="2" Grid.Column="1" />
+                                <Label Text="Info sup" Grid.Row="3" />
+                                <Label Text="Du blabla" Grid.Row="3" Grid.Column="1" />
+                            </Grid>
+                        </StackLayout>
+                    </ScrollView>
+
+                </RelativeLayout>
+                <!--<Button Text="bouton 1" Grid.Row="3" Grid.Column="1" />-->
+              
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

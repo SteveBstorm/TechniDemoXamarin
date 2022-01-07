@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Tools="clr-namespace:XamarinSample.Tools"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinSample.MainPage">
+
+    <ScrollView HeightRequest="1000">
+    <StackLayout>
+        
+        
+        <Label x:Name="label1" 
+               Text="Hello World" 
+               FontSize="50" 
+               
+               TextColor="Aquamarine"
+               />
+        <Button Text="click me" 
+                BackgroundColor="Green" 
+                TextColor="White" 
+                BorderColor="Black" 
+                BorderWidth="2" 
+                Clicked="Button_Clicked"/>
+        <Entry Placeholder="Tapez un truc ici"
+               IsPassword="False"  
+               Keyboard="Url"
+               IsSpellCheckEnabled="True"
+               />
+        <Picker Title="Choix de langage" SelectedIndex="1">
+            <Picker.Items>
+                <x:String>Javascript</x:String>
+                <x:String>TypeScript</x:String>
+                <x:String>C#</x:String>
+            </Picker.Items>
+        </Picker>
+        
+        <!--<DatePicker MinimumDate="01/01/2022" x:Name="maDate"/>-->
+        
+        <Label Text="{Binding Source={x:Reference sl}, Path=Value}" />
+        <Slider Minimum="0" Maximum="10" x:Name="sl"/>
+        
+        <Image Source="{Tools:EmbeddedImage Resource=XamarinSample.image.image.png}" HeightRequest="200" />
+        
+        <Label Text="{Binding Source={x:Reference st}, Path=Value}" />
+        <Stepper x:Name="st" Minimum="0" Maximum="10" Increment="1" />
+
+        <!--<Editor HeightRequest="100" />-->
+
+        <!---->
+
+            <Image Source="https://i.pinimg.com/originals/80/7e/13/807e131715ba62ea5b4147b5bd7d6bd9.jpg" Aspect="AspectFill"/>
+            <Switch x:Name="sw" IsToggled="False" HorizontalOptions="Center" ThumbColor="Chartreuse" />
+            <Label Text="Salut tout le monde !"
+               IsVisible="{Binding Source={x:Reference sw}, Path=IsToggled}"/>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
